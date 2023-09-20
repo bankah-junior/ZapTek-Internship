@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { RiCloseFill, RiMenuFill } from 'react-icons/ri';
+import './navbar.css'
 
 const Navbar = () => {
     const [nav1, setNav1] = useState("");
@@ -9,29 +10,29 @@ const Navbar = () => {
     const [toggleMenu, setToggleMenu] = useState(false);
 
     const handleMenu1 = () => {
-        setNav1("text-yellow-600 underline")
+        setNav1("primary-color underline")
         setNav2("")
         setNav3("")
     }
     const handleMenu2 = () => {
         setNav1("")
-        setNav2("text-yellow-600 underline")
+        setNav2("primary-color underline")
         setNav3("")
     }
     const handleMenu3 = () => {
         setNav1("")
         setNav2("")
-        setNav3("text-yellow-600 underline")
+        setNav3("primary-color underline")
     }
     
     return (
         <div className='absolute w-full' style={{zIndex: 999, backgroundColor: "rgba(0,0,0,0.9)"}}>
             <div className='fitsight__navbar w-full flex justify-between items-center p-6'>
-                <Link to={'/'} className='text-yellow-600 font-bold text-4xl'>FITSIGHT</Link>
+                <Link to={'/'} className='brand-name primary-color font-bold'>FITSIGHT</Link>
                 <div className='hidden md:flex'>
-                    <p><Link to={'/'} className={nav1 + " ml-20 text-white text-2xl"} onClick={handleMenu1}>Home</Link></p>
-                    <p><Link to={'/about-us'} className={nav2 + " ml-20 text-white text-2xl"} onClick={handleMenu2}>About US</Link></p>
-                    <p><Link to={'/lets-talk'} className={nav3 + " ml-20 mr-12 text-white text-2xl"} onClick={handleMenu3}>Let's Talk!</Link></p>
+                    <p><Link to={'/'} className={nav1 + " ml-20 text-white "} onClick={handleMenu1}>Home</Link></p>
+                    <p><Link to={'/about-us'} className={nav2 + " ml-20 text-white "} onClick={handleMenu2}>About US</Link></p>
+                    <p><Link to={'/lets-talk'} className={nav3 + " ml-20 mr-12 text-white "} onClick={handleMenu3}>Let's Talk!</Link></p>
                 </div>
                 <div className="fitsight__navbar-menu md:hidden flex flex-row-reverse items-center">
                     {toggleMenu
