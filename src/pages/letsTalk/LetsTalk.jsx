@@ -23,8 +23,8 @@ const LetsTalk = () => {
           <div className="md:w-100-80 hidden md:block" >            
           </div>
         </div>
-            <footer className='' style={{background: "rgba(0,0,0,0.5)"}}>
-              <center className='py-16'>
+            <footer className='p-12' style={{background: "rgba(0,0,0,0.7)"}}>
+              <center className=''>
                 <a href="mailto:hola@fitsight.com" className="uppercase text-white block">HOLA@FITSIGHT.COM</a>
                 <a href="tel:+34123456987" className="uppercase text-white block">+34 123 456 987</a>
               </center>

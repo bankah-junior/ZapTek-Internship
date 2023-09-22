@@ -1,5 +1,9 @@
 body {
     background: rgba(0, 0, 0, 0.5);
+    background-image: url('./assets/image\ 1.png');
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .primary-color {
@@ -26,13 +30,13 @@ body {
   background: rgba(0, 0, 0, 0.3);
 }
 
-.letsTalk__container-cover {
+/* .letsTalk__container-cover {
   background-color: #000;
   background-image: url('./assets/image\ 1.png');
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
-}
+}*/
 
 .letsTalk__container-main {
   background-color: rgba(0, 0, 0, 0.7);
