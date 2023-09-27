@@ -1,1 +1,11 @@
-export {default as Navbar} from './navbar/Navbar';
+export { default as Navbar } from './navbar/Navbar';
+export { default as Footer } from './footer/Footer';
+export { default as AboutUs } from './aboutUs/AboutUs';
+export { default as AvatarCard } from './avatarCard/AvatarCard';
+export { default as CallToAction } from './callToAction/CallToAction';
+export { default as Gallery } from './gallery/Gallery';
+export { default as Hero } from './hero/Hero';
+export { default as IconCard } from './iconCard/IconCard';
+export { default as ImagesOverlay } from './imagesOverlay/ImagesOverlay';
+export { default as ImageTextOverlay } from './imageTextOverlay/ImageTextOverlay';
+export { default as Testimonial } from './testimonial/Testimonial';

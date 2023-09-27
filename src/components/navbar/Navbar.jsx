@@ -1,56 +1,67 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { RiCloseFill, RiMenuFill } from 'react-icons/ri';
-import './navbar.css'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { RiMenu4Fill, RiCloseFill  } from 'react-icons/ri';
+import logo from '../../assets/logo.jpg';
+import './navbar.css';
+
+const menu = (
+    <>
+        <a href={'#home'} className='w-full'><p className='text-center py-4 border-b-2 border-white rounded-md md:bg-[rgba(255,255,255,0.2)] bg-[rgba(0,0,0,0.2)]'>Home</p></a>
+        <a href={'#gallery'} className='w-full'><p className='text-center py-4 border-b-2 border-white rounded-md md:bg-[rgba(255,255,255,0.2)] bg-[rgba(0,0,0,0.2)]'>Gallery</p></a>
+        <p className=' w-full md:flex text-center py-4 border-b-2 border-white rounded-md md:bg-[rgba(255,255,255,0.2)] bg-[rgba(0,0,0,0.2)]'>
+            <a className='md:block md:w-24' href={"#about-us"}>About Us </a>
+            <select name="About Us" id="aboutUs" className='border-none ml-2 w-0 p-0 text-black bg-transparent cursor-pointer'>
+                <option value=""></option>
+                <option value="Drop 1">Drop 1</option>
+                <option value="Drop 2">Drop 2</option>
+                <option value="Drop 3">Drop 3</option>
+            </select>
+        </p>
+        <p className=' w-full md:flex text-center py-4 border-b-2 border-white rounded-md md:bg-[rgba(255,255,255,0.2)] bg-[rgba(0,0,0,0.2)]'>
+            <a className='md:block md:w-24' href={"#how-we-help"}>How we help</a>
+            <select name="How we help" id="howWeHelp" className='border-none ml-2 w-0 p-0 text-black bg-transparent cursor-pointer'>
+                <option value="Drop 1">Drop 1</option>
+                <option value="Drop 2">Drop 2</option>
+                <option value="Drop 3">Drop 3</option>
+            </select>
+        </p>
+    </>
+)
 
 const Navbar = () => {
-    const [nav1, setNav1] = useState("");
-    const [nav2, setNav2] = useState("");
-    const [nav3, setNav3] = useState("");
-    const [toggleMenu, setToggleMenu] = useState(false);
+    const [toggle, setToggle] = useState(false);
 
-    const handleMenu1 = () => {
-        setNav1("primary-color underline")
-        setNav2("")
-        setNav3("")
-    }
-    const handleMenu2 = () => {
-        setNav1("")
-        setNav2("primary-color underline")
-        setNav3("")
-    }
-    const handleMenu3 = () => {
-        setNav1("")
-        setNav2("")
-        setNav3("primary-color underline")
-    }
-    
-    return (
-        <div className='absolute w-full' style={{zIndex: 999, backgroundColor: "rgba(0,0,0,0.9)"}}>
-            <div className='fitsight__navbar w-full flex justify-between items-center p-6'>
-                <Link to={'/'} className='brand-name primary-color font-bold'>FITSIGHT</Link>
-                <div className='hidden md:flex'>
-                    <p><Link to={'/'} className={nav1 + " ml-20 text-white "} onClick={handleMenu1}>Home</Link></p>
-                    <p><Link to={'/about-us'} className={nav2 + " ml-20 text-white "} onClick={handleMenu2}>About US</Link></p>
-                    <p><Link to={'/lets-talk'} className={nav3 + " ml-20 mr-12 text-white "} onClick={handleMenu3}>Let's Talk!</Link></p>
-                </div>
-                <div className="fitsight__navbar-menu md:hidden flex flex-row-reverse items-center">
-                    {toggleMenu
-                        ? <RiCloseFill color='white' size={30} className='cursor-pointer rotate-center' onClick={() => setToggleMenu(false)} />
-                        : <RiMenuFill color='white' size={30} className='cursor-pointer scale-in-center' onClick={() => setToggleMenu(true)}/> 
-                    }
-                </div>
+  return (
+    <>
+        <navbar className="flex justify-between items-center pl-2 pr-4 md:pl-6 md:pr-10 md:py-2 shadow-lg">
+            <Link to={"/"} >
+                <img src={logo} alt="logo" />
+            </Link>
+
+            {/* default to medium devices menu */}
+            <div className="md:hidden">
+                {!toggle
+                    ? <RiMenu4Fill size={30} className='cursor-pointer scale-in-hor-center' onClick={() => setToggle(true)} />
+                    : <RiCloseFill size={30} className='cursor-pointer rotate-in-center' onClick={() => setToggle(false)} />
+                }
             </div>
-            {toggleMenu && (
-                <div className="fitsight__navbar-menu_container">
-                    <div className="fitsight__navbar-menu_container-links flex flex-col justify-center items-center mb-4">
-                        <p className='w-full text-center p-4 hover:bg-yellow-c100 transition-colors duration-200 ease-in slide-in-top-menu1'><Link to={'/'} className={nav1 + " text-white mr-6 block"} onClick={handleMenu1}>Home</Link></p>
-                        <p className='w-full text-center p-4 hover:bg-yellow-c100 transition-colors duration-200 ease-in slide-in-top-menu2'><Link to={'/about-us'} className={nav2 + " text-white mr-6 block"} onClick={handleMenu2}>About US</Link></p>
-                        <p className='w-full text-center p-4 hover:bg-yellow-c100 transition-colors duration-200 ease-in slide-in-top-menu3'><Link to={'/lets-talk'} className={nav3 + " text-white mr-6 block"} onClick={handleMenu3}>Let's Talk!</Link></p>
-                    </div>
-                </div>
-            )}
-        </div>
+            {/* End of default to medium devices menu */}
+
+            {/* Medium devices up menu */}
+            <div className='hidden md:flex items-center space-x-20'>
+                {menu}
+            </div>
+            {/* End of medium devices up menu */}
+
+            <button className='md:px-4 md:py-2 p-2 text-white bg-[#219d80] hover:opacity-70'>Contact Us</button>
+
+        </navbar>
+        {toggle && (
+            <div className="slide-in-fwd-left absolute space-y-8 p-8 bg-slate-600 w-full h-screen flex flex-col items-center md:hidden text-white z-50 font-bold">
+                {menu}
+            </div>
+        )}
+    </>
   )
 }
 

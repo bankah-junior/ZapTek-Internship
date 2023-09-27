@@ -1,7 +1,6 @@
-import React from "react";
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
+import { Route, RouterProvider, createRoutesFromElements, createBrowserRouter } from 'react-router-dom';
+import { Home } from './pages/index';
 
-import {Home, About, LetsTalt} from './pages/index';
 import RootLayout from "./layouts/RootLayout";
 
 // router and routes
@@ -9,8 +8,6 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
-      <Route path="about-us" element={<About />} />
-      <Route path="lets-talk" element={<LetsTalt />} />
     </Route>
   )
 )

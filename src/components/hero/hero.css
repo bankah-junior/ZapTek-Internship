@@ -1,0 +1,5 @@
+.hero__container {
+    background-image: url('../../assets/hero-img.jpg');
+    background-position: center;
+    background-size: cover;
+}
