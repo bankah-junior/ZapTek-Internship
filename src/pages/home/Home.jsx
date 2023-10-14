@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import { Link } from 'react-router-dom'
 import { CounterCard, Gallery, IconHeadText, IconText, IconTextCard, PCarousel, PageLoader, SectionTitle, Slider, TeamCard } from '../../components'
 import './home.css'
@@ -22,8 +22,11 @@ import teamImg1 from '../../assets/team/team-1.jpg'
 import teamImg2 from '../../assets/team/team-2.jpg'
 import teamImg3 from '../../assets/team/team-3.jpg'
 import teamImg4 from '../../assets/team/team-4.jpg'
+import ScrollTrigger from 'react-scroll-trigger';
 
 const Home = () => {
+  const [counterOnHome, setCounterOnHome] = useState(false)
+  
   return (
     <div className='relative'>
         {/* <Link to={`/profile-details/projectInfo`}>Details</Link> */}
@@ -32,12 +35,13 @@ const Home = () => {
           {/* Home Section */}
           <div className='home-container w-full h-full'>
             <div className="home-container__cover pt-[91px] px-[15px] lg:px-[140px] w-full h-full bg-[rgba(0,0,0,0.5)]">
-              <section className="w-full lg:h-screen text-white flex flex-col justify-center items-center" id='home'>
-                <h1 className='capitalize text-3xl lg:text-6xl font-bold text-center md:hidden lg:block space-y-3' data-aos="fade-up" data-aos-duration="1500">
+            <ScrollTrigger onEnter={() => setCounterOnHome(true)} onExit={() => setCounterOnHome(false)}>
+              {counterOnHome && (<section className="w-full lg:h-screen text-white flex flex-col justify-center items-center" id='home'>
+                <h1 className='mt-12 md:mt-10 lg:mt-0 capitalize text-3xl lg:text-6xl font-bold text-center md:hidden lg:block space-y-3 slide-in-bottom' data-aos="fade-up" data-aos-duration="1500">
                   <p>Powerful Digital</p>
                   <p>Solution With Gp<span className='text-[#ffc451]'>.</span></p>
                 </h1>
-                <h1 className='capitalize text-3xl lg:text-6xl font-bold text-center hidden md:block lg:hidden' data-aos="fade-up" data-aos-duration="1500">
+                <h1 className='capitalize text-3xl lg:text-6xl font-bold text-center hidden md:block lg:hidden slide-in-bottom' data-aos="fade-up" data-aos-duration="1500">
                   Powerful Digital Solution With Gp<span className='text-[#ffc451]'>.</span>
                 </h1>
                 <p className='text-center text-lg md:text-2xl mt-2 w-3/4 md:w-full' data-aos="fade-up" data-aos-duration="1500">We are team of talented digital marketers</p>
@@ -48,7 +52,8 @@ const Home = () => {
                   <IconText icon={<RiPaintBrushLine className='text-[#ffc451]' size={35} />} text={"Magni Dolores"} />
                   <IconText icon={<FaDatabase className='text-[#ffc451]' size={25} />} text={"Nemos Enimade"} />
                 </div>
-              </section>
+              </section>)}
+            </ScrollTrigger>
             </div>
           </div>
           {/* End of Home Section */}
