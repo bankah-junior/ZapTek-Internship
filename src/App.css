@@ -1,0 +1,17 @@
+.spinner {
+  /* transform: rotate(45deg); */
+  animation: spinner 1s linear infinite forwards;
+}
+
+@keyframes spinner {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}

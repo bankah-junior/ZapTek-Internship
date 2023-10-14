@@ -1,0 +1,17 @@
+.home-container, .cta-container, .testimonial-container {
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.home-container {
+    background-image: url(../../assets/hero-bg.jpg);
+}
+
+.cta-container {
+    background-image: url(../../assets//cta-bg.jpg);
+}
+
+.testimonial-container {
+    background-image: url(../../assets/testimonials-bg.jpg);
+}

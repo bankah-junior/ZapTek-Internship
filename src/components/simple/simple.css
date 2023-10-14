@@ -1,0 +1,42 @@
+.icon-text-card, .icon-text-card h2 {
+    transition: all .5s ease;
+}
+
+.icon-text-card:hover {
+    transform: translateY(-5px);
+}
+
+.team-card:hover .team-card-media {
+    display: flex;
+}
+
+.slide-in-top {
+	-webkit-animation: slide-in-top 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-top 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+ @-webkit-keyframes slide-in-top {
+    0% {
+      -webkit-transform: translateY(-20px);
+              transform: translateY(-20px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-top {
+    0% {
+      -webkit-transform: translateY(-20px);
+              transform: translateY(-20px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
